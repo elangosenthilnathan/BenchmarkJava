@@ -33,6 +33,6 @@ jobs:
         find . -type f | grep 'war'
 
     - name: NextGen Static Analysis
-      run: ${GITHUB_WORKSPACE}/sl analyze --force --wait --app Benchmark --java --cpg ./target/benchmark.war
+      run: ${GITHUB_WORKSPACE}/sl analyze --force --wait --app Benchmark --java ./target/benchmark.war
       env:
         SHIFTLEFT_ACCESS_TOKEN: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
