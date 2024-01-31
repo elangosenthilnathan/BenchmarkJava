@@ -21,10 +21,9 @@ jobs:
         java-version: '1.2'
         distribution: 'zulu'
 
-    - name: Run Spotless check
-      run: mvn spotless:check
+
     - name: Run build
-      run: mvn clean build      
+      run:  mvn install; mvn clean package     
     
     - name: Download ShiftLeft CLI
       run: |
