@@ -26,9 +26,8 @@ jobs:
     
     - name: Download ShiftLeft CLI
       run: |
-        java --version
         curl https://cdn.shiftleft.io/download/sl > ${GITHUB_WORKSPACE}/sl && chmod a+rx ${GITHUB_WORKSPACE}/sl
-        tree
+        find . -type f | grep -e 'jar|war|ear'
 
     - name: NextGen Static Analysis
       run: ${GITHUB_WORKSPACE}/sl analyze --force --wait --app Benchmark --java --cpg target/*.jar
