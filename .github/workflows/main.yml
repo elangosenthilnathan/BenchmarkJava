@@ -14,10 +14,10 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Set up JDK 8
+    - name: Set up JDK 11
       uses: actions/setup-java@v4
       with:
-        java-version: '8'
+        java-version: '11'
         distribution: 'zulu'
 
 
@@ -30,10 +30,7 @@ jobs:
 
     - name: List any jar | war | ear files
       run: |
-        echo "======================="
         find . -type f | grep 'war'
-        echo "======================="
-
 
     - name: NextGen Static Analysis
       run: ${GITHUB_WORKSPACE}/sl analyze --force --wait --app Benchmark --java --cpg ./target/benchmark.war
