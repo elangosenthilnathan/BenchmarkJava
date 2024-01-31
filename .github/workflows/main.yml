@@ -31,14 +31,11 @@ jobs:
     - name: List any jar | war | ear files
       run: |
         echo "======================="
-        find . -type f | grep 'jar'
-        echo "======================="
         find . -type f | grep 'war'
         echo "======================="
-        find . -type f | grep 'ear'
-        echo "======================="
+
 
     - name: NextGen Static Analysis
-      run: ${GITHUB_WORKSPACE}/sl analyze --force --wait --app Benchmark --java --cpg target/*.jar
+      run: ${GITHUB_WORKSPACE}/sl analyze --force --wait --app Benchmark --java --cpg ./target/benchmark.war
       env:
         SHIFTLEFT_ACCESS_TOKEN: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
