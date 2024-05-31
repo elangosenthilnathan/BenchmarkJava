@@ -22,7 +22,9 @@ jobs:
 
 
     - name: Run build
-      run:  mvn install; mvn clean package     
+      run:  | 
+          mvn install; mvn clean package     
+          mvn --fail-never -B dependency:build-classpath -DincludeScope=compile -Dorg.slf4j.simpleLogger.defaultLogLevel=info -Dorg.slf4j.simpleLogger.logFile=System.out
     
     - name: Download ShiftLeft CLI
       run: |
